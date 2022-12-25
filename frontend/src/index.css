@@ -22,6 +22,18 @@ a{
   width: 100%;
   max-width: 400px;
 }
+.btn-primary{
+  background-color: #f0c040;
+  color: black;
+}
 .product_info{
   padding: 1rem;
+}
+.rating {
+  color: #ffcc00;
+}
+.numReviews{
+  color: black;
+  font-size: large;
+  margin-left: 0.5rem;
 }
