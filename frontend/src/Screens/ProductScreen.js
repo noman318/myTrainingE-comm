@@ -1,12 +1,12 @@
-// import React from "react";
-// import {Card} from 'react-bootstrap'
+import React from "react";
+import {useParams} from 'react-router-dom'
 
-// export const ProductScreen = ({product}) => {
-//   return (
-//   <>
-//     <Card className='my-3 p-3 rounded'>
-
-//     </Card>
-//   </>
-//   );
-// };
+export const ProductScreen = ({product}) => {
+    const params = useParams()
+    const {id} = params
+  return (
+  <div>
+    <h4>{id}</h4>
+  </div>
+  );
+};
