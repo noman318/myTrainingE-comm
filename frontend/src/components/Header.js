@@ -1,14 +1,16 @@
 import Container from 'react-bootstrap/Container';
 import {Nav,Navbar} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import {LinkContainer} from 'react-router-bootstrap'
 
 function Header() {
   return (
+    <div className='d-flex flex-column site_container'>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Link to={'/'}>
-        <Navbar.Brand to="/">MyStore</Navbar.Brand>
-        </Link>
+        <LinkContainer to={'/'}>
+        <Navbar.Brand>MyStore</Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -24,6 +26,7 @@ function Header() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </div>
   );
 }
 
