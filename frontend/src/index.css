@@ -1,0 +1,23 @@
+main{
+  min-height: 90vh;
+}
+a{
+  color: #ffff;
+  text-decoration: none;
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.product{
+  border: 1px #404040 solid;
+  margin: 1rem;
+}
+.product img{
+  width: 100%;
+  max-width: 400px;
+}
+.product_info{
+  padding: 1rem;
+}
