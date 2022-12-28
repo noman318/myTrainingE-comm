@@ -1,4 +1,5 @@
-const data = [
+const data = {
+  products:[
   {
 _id:1,
     name: 'Airpods Bluetooth Headphones',
@@ -78,6 +79,6 @@ _id:6,
     rating: 4,
     numReviews: 12,
   },
-]
+]}
 
 export default data

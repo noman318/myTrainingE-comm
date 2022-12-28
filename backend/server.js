@@ -1,24 +1,28 @@
-import express from "express";
-import data from "./data.js";
-import cors from 'cors'
+import express from 'express';
+import data from './data.js';
 
-const PORT = 5000
-const app = express()
-app.use(cors())
+const app = express();
+// test
+app.get('/api/products', (req, res) => {
+  res.send(data.products);
+});
 
-app.get('/',(req,res)=>{
-    res.send('Root route testing')
+app.get('/api/products/:id',(req,res)=>{
+  const productId = req.params.id
+  console.log('productId :>> ', productId);
+  const product = data.products.find((findProduct)=> findProduct._id === productId)
+  console.log("product", product);
+  if(product){
+    res?.send(product)
+    console.log('product :>> ', product);
+  }
+  else{
+    res.sendStatus(404).send({MessageChannel:'not found'})
+  }
+  
 })
 
-app.get('/api/products',(req,res)=>{
-    res.send(data)
-})
-
-app.listen(PORT,(err)=>{
-    if(err){
-        console.log(err);
-    }
-    else{
-        console.log(`App server is running on port ${PORT}`)
-    }
-})
+const port = 5000;
+app.listen(port, () => {
+  console.log(`server is running on http://localhost:${port}`);
+});
