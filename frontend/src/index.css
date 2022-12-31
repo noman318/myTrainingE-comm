@@ -46,3 +46,9 @@ a {
 .badge_text {
   font-size: 1.6rem;
 }
+.loader{
+  /* margin-top: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

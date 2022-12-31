@@ -17,12 +17,12 @@ app.get("/api/products", (req, res) => {
 
 app.get("/api/product/:id", (req, res) => {
   // console.log("route hit", req.params);
-  const product = data.products.find((f) => f._id === parseInt(req.params.id));
+  const product = data.products.find((f) => f._id === (req.params.id));
   // console.log("product", product);
   if (product) {
     res?.send(product);
   } else {
-    res.status(404).send({ MessageChannel: "Product not found" });
+    res.status(404).send({ message: "Product not found" });
   }
 });
 

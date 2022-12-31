@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Rating from "../components/Rating";
 import { Helmet } from "react-helmet-async";
+import Loader from "../components/Loader";
+import MessageBox from "../components/MessageBox";
+import { getError } from "../util";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -29,22 +32,21 @@ export const ProductScreen = () => {
   });
 
   useEffect(() => {
-    console.log("Effect running");
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
         const result = await axios.get(`/api/product/${id}`);
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
-        dispatch({ type: "FETCH_FAIL", payload: err.message });
+        dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
     };
     fetchData();
   }, [id]);
   return loading ? (
-    <div>Loading...</div>
+    <Loader />
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox variant='danger'>{error}</MessageBox>
   ) : (
     <div className="p-4">
       <Row>
